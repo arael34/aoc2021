@@ -1,5 +1,10 @@
-def bingo():
-    return 1
+import re
+
+def bingo(chosen, boards):
+    for board in boards:
+        for num in chosen:
+            return 1
+     # loop through each board and find how long it takes to get a bingo
 def main():
     chosenNumbers = '''\
 7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
@@ -25,9 +30,9 @@ def main():
 '''
     chosenArr = chosenNumbers.split(',')
     boards = []
-    for i in range(len(inputB.split("\n\n"))):
-        for n in range(25):
-            boards[i][n] = inputB.split("\n\n")[i].split(" ")[n]
-    print(boards)
+    arr = inputB.split("\n\n")
+    for i in range(len(arr)):
+        boards.append(re.split(" |  |\n", arr)
+    print(bingo(chosenArr, boards))
 if __name__ == "__main__":
     main()
