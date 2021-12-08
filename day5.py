@@ -8,10 +8,11 @@ def find_line(a, b):
         lolz.append([xpoint, ypoint])
     return lolz
   else :
-    for i in range():
-      continue # range = a[1] - a[0] , increment steps by one and append to arr , make sure line is diagonal
+    for i in range(a[1] - a[0]):
+      lolz.append([i + a[0], ])
+      # range = a[1] - a[0] , increment steps by one and append to arr , make sure line is diagonal
     return lolz
-  
+  # MAYBE make this function part of find_points because diagonal lines shouldn't be sorted
 
 def find_points(lines):
   list = []
