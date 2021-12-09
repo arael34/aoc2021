@@ -21,7 +21,7 @@ def findNumber(lanterns):
 def findNumber(lanterns):
   arr = []
   new = 0
-  for lantern in lanterns:
+  for lantern in lanterns:    # or for i in range(9): arr[i] = lanterns.count(i or whatever)
     for i in range(9):
       if lantern == i:
         arr[i] += 1
