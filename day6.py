@@ -1,10 +1,11 @@
+'''
 def findNumber(lanterns):
-  total = 0
   cur_arr = []
+  total = 0
   for lantern in lanterns:
     cur_arr = []
     cur_arr.append(lantern)
-    for day in range(200):
+    for day in range(100):
       for i in range(len(cur_arr)):
         if cur_arr[i] > 0:
           cur_arr[i] -= 1
@@ -13,15 +14,48 @@ def findNumber(lanterns):
           cur_arr.append(8)
     total += len(cur_arr)
   return total
+'''
 
-  # make new fish with number and spawn day and calculate from there
-        
+# another solution might be to find the amount of 1s, 2s, etc and go from there
+
+  # recursion solution
+def findNumber(lanterns, daysLeft):
+  cur_arr = []
+  if (daysLeft <= 100):
+    total = 0
+    for lantern in lanterns:
+      cur_arr = []
+      cur_arr.append(lantern)
+      for day in range(100):
+        for i in range(len(cur_arr)):
+          if cur_arr[i] > 0:
+            cur_arr[i] -= 1
+          else:
+            cur_arr[i] = 6
+            cur_arr.append(8)
+      total += len(cur_arr)
+    return total
+  else:
+    arr = []
+    for lantern in lanterns:
+      cur_arr = []
+      cur_arr.append(lantern)
+      for day in range(100):
+        for i in range(len(cur_arr)):
+          if cur_arr[i] > 0:
+            cur_arr[i] -= 1
+          else:
+            cur_arr[i] = 6
+            cur_arr.append(8)
+      arr += cur_arr
+    return findNumber(arr, daysLeft - 100) #idk if this is right
+  
 def main():
   input = '''\
 3,4,3,1,2
 '''
   lanterns = [int(num) for num in input.split(",")]
-  print(findNumber(lanterns))
+  print(findNumber(lanterns, 80))
   
 if __name__ == "__main__":
   main()
