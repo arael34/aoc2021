@@ -17,7 +17,19 @@ def findNumber(lanterns):
 '''
 
 # another solution might be to find the amount of 1s, 2s, etc and go from there
-
+'''
+def findNumber(lanterns):
+  arr = []
+  new = 0
+  for lantern in lanterns:
+    for i in range(9):
+      if lantern == i:
+        arr[i] += 1
+  for day in range(80):
+    new = arr.pop(0)
+    arr[6] += new; arr[8] += new
+  return sum(arr)
+'''
   # recursion solution
 def findNumber(lanterns, daysLeft):
   cur_arr = []
